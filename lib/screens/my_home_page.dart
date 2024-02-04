@@ -14,7 +14,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   PageController? _pageController;
-  final _initialIndex = 0;
+  late var _initialIndex = 0;
 
   @override
   void initState() {
@@ -29,9 +29,9 @@ class _MyHomePageState extends State<MyHomePage> {
     return SafeArea(
       child: Scaffold(
           body: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-                    children: [
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
             Container(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -39,37 +39,41 @@ class _MyHomePageState extends State<MyHomePage> {
                   MaterialButton(
                     onPressed: () {
                       setState(() {
+                        _initialIndex = 0;
                         _pageController!.jumpToPage(0);
                       });
                     },
-                    color: Colors.pink,
+                    color:_initialIndex==0?Colors.pink: Colors.black26,
                     child: Text("Page 1"),
                   ),
                   MaterialButton(
                     onPressed: () {
                       setState(() {
+                        _initialIndex = 1;
                         _pageController!.jumpToPage(1);
                       });
                     },
-                    color: Colors.pink,
+                    color: _initialIndex==1?Colors.pink: Colors.black26,
                     child: Text("Page 2"),
                   ),
                   MaterialButton(
                     onPressed: () {
                       setState(() {
+                        _initialIndex = 2;
                         _pageController!.jumpToPage(2);
                       });
                     },
-                    color: Colors.pink,
+                    color: _initialIndex==2?Colors.pink: Colors.black26,
                     child: Text("Page 3"),
                   ),
                   MaterialButton(
                     onPressed: () {
                       setState(() {
+                        _initialIndex = 3;
                         _pageController!.jumpToPage(3);
                       });
                     },
-                    color: Colors.pink,
+                    color: _initialIndex==3?Colors.pink: Colors.black26,
                     child: Text("Page 4"),
                   )
                 ],
@@ -85,9 +89,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 Page4(),
               ],
             ))
-                    ],
-                  ),
-          )),
+          ],
+        ),
+      )),
     );
   }
 }
